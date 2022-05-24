@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="4000">
+        Bla bla bla
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext("2d");
+        
+        function drawRect() {
+            ctx.fillStyle = "#BADA55";
+            ctx.fillRect(10, 10, 50, 50);
+        }
+        
+        function drawCircle() {
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.arc(100, 100, 30, 0, 2*Math.PI, false);
+            ctx.fill();
+        }
+
+        function drawLine(startX, startY, endX, endY)  {
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+        }
+
+        function drawText(xAxis, yAxis, text) {
+            ctx.save();
+            ctx.translate(xAxis, yAxis);
+            ctx.rotate(-Math.PI/2);
+            ctx.textAlign = "center";
+            ctx.fillText(text, 0, 0);
+            ctx.restore();
+        }
+
+        function drawRule() {
+            let yAxis = 10;
+            let startX = 30;
+            let lineHeight = 15;
+            let spaceBeforeText = 5;
+
+            for(yAxis; yAxis < 10000; yAxis += 100) {
+                drawLine(startX, yAxis, startX + lineHeight, yAxis);
+
+                drawText(startX - lineHeight - spaceBeforeText, yAxis, yAxis);
+            }
+        }
+
+        drawRule();
+    </script>
+</body>
+</html>

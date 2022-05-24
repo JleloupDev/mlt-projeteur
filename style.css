@@ -1,0 +1,745 @@
+/*
+
+[Table of content]
+
+1. General Styling
+2. Header
+3. Home Slider, Parallax
+4. Services Section
+5. Work Section
+10. Contact
+11. Footer
+12. Loader
+13. Clearfix
+
+
+[Color codes]
+Green #a1a1a1
+Dark Blue #16a085
+Grey #ECF0F1
+
+[Sizing and breakpoints]
+max-width : 1400px
+min-width : 300px
+
+breakpoint tablet : 850px
+Breakpoint Mobile 450px
+
+*/
+
+/* *********************************************************
+  General Styling 
+********************************************************* */
+
+:root {
+  --third-color: #a1a1a1;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--third-color);
+}
+
+a:hover {
+  color: var(--third-color);
+}
+
+a,
+img,
+.overlay,
+input,
+textarea,
+.plan-wrap p,
+.filters .filter {
+  /*transition*/
+  -webkit-transition: all .12s linear;
+  -moz-transition: all .12s linear;
+  -o-transition: all .12s linear;
+  transition: all .12s linear;
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.7em;
+  color: #777777;
+  font-weight: normal;
+}
+
+body,
+input,
+textarea {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navigation a,
+.btn,
+.filters .filter {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin: 1em 0 1.4em;
+  color: #484f58;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1.2em;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1.125em;
+}
+
+.pleft-25 {
+  padding-left: 25px;
+}
+
+.pright-25 {
+  padding-right: 25px;
+}
+
+
+/**********************************************************
+  Layout
+**********************************************************/
+
+/*
+
+.wrap {
+  .title-secion {
+  }
+  .inner .sectionName {
+  }
+}
+*/
+
+.wrap {
+  width: 100%;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.inner {
+  width: clamp(300px, 80%, 1400px);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  min-height: 90vh;
+}
+
+.title-section {
+  display: flex;
+  font-size: 5rem;
+  height: 20vh;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 3rem;
+  background-color: white;
+  color: black;
+}
+
+.title-section h2 {
+  margin: auto;
+  height: 15vh;
+  line-height: 15vh;
+}
+
+.title-section span {
+  float: left;
+  height: 20vh;
+  width: 10vw;
+  line-height: 20vh;
+
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+/* Precision on title to get the biggest size on each screens */
+@media handheld,
+only screen and (max-width: 850px) {
+  .title-section {
+    font-size: 2.7rem;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 450px) {
+  .title-section {
+    font-size: 2rem;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 400px) {
+  .title-section {
+    font-size: 1.8rem;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 350px) {
+  .title-section {
+    font-size: 1.2rem;
+  }
+}
+
+
+/**********************************************************
+  Rule
+**********************************************************/
+
+#canvas {
+  display: none;
+}
+
+@media handheld, only screen and (min-width: 1000px) {
+  #content {
+    width: 97%;
+    margin-left: 3%;
+    border-left: 1px solid gray;
+  }
+
+  #canvas {
+    display: block;
+    z-index: 21;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5%;
+  }
+}
+
+/**********************************************************
+  Buttons 
+**********************************************************/
+#btnBackToTop {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: var(--third-color);
+  /* Set a background color */
+  color: white;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 15px;
+  /* Some padding */
+  border-radius: 100%;
+  /* Rounded corners */
+  font-size: 18px;
+  /* Increase font size */
+  width: 4rem;
+  height: 4rem;
+}
+
+#btnBackToTop:hover {
+  background-color: #555;
+}
+
+/* *********************************************************
+  Parallax 
+********************************************************* */
+.title-page {
+  width: 100%;
+}
+
+.parallax-section {
+  z-index: -1;
+  clear: both;
+  background-image: url('images/home.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 80vh;
+}
+
+.parallax-section h1 {
+  text-shadow: black 3px 2px;
+}
+
+.parallax-section .content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.parallax-section .content-header {
+  padding: 145px 0 250px;
+}
+
+.parallax-section .content h1 {
+  color: #fff;
+}
+
+.parallax-section .content h1 {
+  font-size: 5em;
+}
+
+.slogan {
+  width: 100%;
+  height: 20%;
+  background-color: black;
+  color: white;
+  height: 20vh;
+  display: flex;
+  font-size: 2.5em;
+}
+
+.slogan div {
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+}
+
+@media handheld,
+only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2em;
+  }
+}
+
+/* *********************************************************
+  Services Section
+********************************************************* */
+
+.services .inner {
+  display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 3rem;
+}
+
+.services .service-box {
+  text-align: center;
+  flex-grow: 1;
+  flex-basis: 30%;
+}
+
+.service-box .content {
+  border: 1px solid rgba(204, 204, 204, .6);
+  padding: 3rem;
+  margin: auto;
+  margin-bottom: auto;
+  box-shadow: 0 0 2.5em .5em rgba(204, 204, 204, .5);
+  margin-bottom: 4rem;
+  height: 90%;
+}
+
+
+.service-icon {
+  margin-top: 20px;
+  padding-top: 1em;
+  color: #484f58;
+}
+
+.service-icon img {
+  height: 7rem;
+}
+
+.services h3 {
+  font-size: 1.3;
+}
+
+.service-entry {
+  margin-top: 70px;
+  padding: 0 .5em;
+}
+
+.service-entry p {
+  margin-bottom: 10px;
+}
+
+.service-entry ul {
+  list-style: disc;
+  text-align: left;
+}
+
+@media handheld,
+only screen and (max-width: 1200px) {
+  .services .inner {
+    flex-direction: column;
+  }
+
+  .services .service-box {
+    width: clamp(300px, 80%, 1200px);
+  }
+
+  .services ul {
+    text-align: center;
+    list-style: none;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 1000px) {
+  .service-box .content {
+    padding: 2rem;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 500px) {
+  #services h3 {
+    font-size: 1.3em;
+  }
+
+  .service-box .content {
+    padding: 1rem;
+  }
+}
+
+/* *********************************************************
+  Work Section
+********************************************************* */
+
+.wrap.work {
+  text-align: center;
+}
+
+.work .inner {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.work .work-item {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.work .work-item>* {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3rem;
+}
+
+.work-item img {
+  object-fit: fill;
+  box-shadow: 0 0 2.5em .5em rgba(204, 204, 204, .5);
+}
+
+.work .inner .work-item:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+
+.work .inner .work-item .work-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.work .realisation-item {
+  flex-basis: 45%;
+  flex-grow: 1;
+}
+
+@media handheld,
+only screen and (max-width: 850px) {
+
+  /* 
+    Change direction to pass text and img on a column 
+    Precise for the 2n, to gain higher priority 
+  */
+  .work .work-item,
+  .work .inner .work-item:nth-child(2n) {
+    flex-direction: column;
+  }
+
+  .work .work-item>* {
+    width: clamp(300px, 80%, 850px);
+  }
+}
+
+
+/* *********************************************************
+  Team Section
+********************************************************* */
+.staff-img img {
+  height: 40vh;
+  object-fit: contain;
+}
+
+.inner.profil {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+}
+
+.inner.profil>* {
+  flex-basis: 40%;
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.work-info {
+  text-align: right;
+}
+
+@media handheld,
+only screen and (max-width: 850px) {
+  .inner.profil {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: auto;
+  }
+
+  .work-info {
+    text-align: center;
+  }
+}
+
+/* *********************************************************
+ Contact
+********************************************************* */
+.contact {
+  padding-top: 0;
+}
+
+.contact .title-section {
+  margin-bottom: 0;
+}
+
+.contact .inner {
+  width: 100%;
+  display: flex;
+  padding: 0;
+}
+
+.contact .adress-photo {
+  width: 40%;
+}
+
+.contact .adress-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact .address h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.contact .address {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact .address .content {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+.address span {
+  line-height: 1.1;
+  margin-bottom: 3px;
+  color: #484f58;
+  font-size: 1.125em;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+.phone {
+  line-height: 30px;
+}
+
+@media handheld,
+only screen and (max-width: 1000px) {
+  .addresses {
+    width: 70%;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 750px) {
+  .contact .inner {
+    flex-direction: column-reverse;
+  }
+
+  .contact .inner > *{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .contact .adress-photo {
+    width: clamp(300px, 70%, 850px);
+  }
+}
+
+@media handheld,
+only screen and (max-width: 450px) {
+  .contact .address h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* *********************************************************
+  Footer
+********************************************************* */
+
+footer {
+  background: black;
+  padding: 2rem;
+}
+
+footer h3 {
+  color: #fff;
+}
+
+footer p,
+footer a {
+  color: #f4f4f4;
+}
+
+
+.social-set {
+  width: 100%;
+  margin: 0 0 .5em;
+  padding: 0 0 1em 0;
+  text-align: center;
+}
+
+.social-set a {
+  font-size: 1.5em;
+  margin-right: .5em;
+  padding: 1em;
+}
+
+/*------------------------------------------------------------- 
+  Team
+---------------------------------------------------------------*/
+
+.wrap.team {
+  text-align: center;
+}
+
+
+.staff-img {
+  background: #fff;
+  width: 100%;
+}
+
+.staff-img img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.staff-img:hover img {
+  opacity: 1;
+}
+
+/*------------------------------------------------------------- 
+  Media queries
+---------------------------------------------------------------*/
+
+@media handheld,
+only screen and (max-width: 1200px) {
+  .team-social {
+    height: 30px;
+  }
+
+  .team-social a i {
+    font-size: 1em;
+    padding: 3px;
+  }
+}
+
+@media handheld,
+only screen and (max-width: 767px) {
+  .service-entry {
+    margin-bottom: 2.5em;
+  }
+
+  #page-sidebar-grid .post-wrap {
+    width: 100%;
+  }
+
+  .parallax-section .content h1,
+  .content-header h1 {
+    font-size: 3em;
+  }
+
+  .slogan {
+    font-size: 2em;
+  }
+
+  .team-social {
+    position: static;
+    bottom: 0;
+    transform: translateY(0);
+  }
+}
+
+@media handheld,
+only screen and (max-width: 480px) {
+
+  .social-set a {
+    padding: 0 !important;
+  }
+
+  .parallax-section .content p,
+  .top-slider .content-header p {
+    width: 100%;
+  }
+
+  .parallax-section .content h1,
+  .content-header h1 {
+    font-size: 2em;
+  }
+
+  .slogan {
+    font-size: 1.2em;
+  }
+
+  .parallax-section .content p,
+  .top-slider .content-header p,
+  .home-slider .content p {
+    font-size: 0.8em;
+    margin: 0 auto 10px auto;
+    line-height: 18px;
+  }
+}
