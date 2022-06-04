@@ -189,7 +189,17 @@ only screen and (max-width: 1200px) {
 @media handheld,
 only screen and (max-width: 767px) {
   #top-header {
+    position: absolute;
     padding: 8px 0;
+    background-color: transparent;
+  }
+
+  #top-header:hover {
+    background-color: transparent;
+  }
+
+  .bg-header .logo {
+    filter: brightness(1);
   }
 
   .logo-wrap {
@@ -222,7 +232,7 @@ only screen and (max-width: 767px) {
     display: block;
   }
 
-  .navigation label {
+  /* .navigation label {
     position: absolute;
     display: block;
     right: 0;
@@ -239,8 +249,8 @@ only screen and (max-width: 767px) {
     top: 0;
     content: "\2261";
     font-size: 1.8em;
-  }
-
+  } */
+/* 
   .navigation input[type=checkbox]:checked~label:after {
     color: #fff;
   }
@@ -253,9 +263,8 @@ only screen and (max-width: 767px) {
     width: 100%;
     text-align: left;
     padding: .8em 0;
-  }
-
-  .navigation .sub-menu {
+  } */
+  /* .navigation .sub-menu {
     position: relative;
     top: 0;
     left: 0;
@@ -265,5 +274,5 @@ only screen and (max-width: 767px) {
     border: none;
     box-shadow: none;
     width: 100%;
-  }
+  } */
 }
