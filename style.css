@@ -511,7 +511,7 @@ only screen and (max-width: 850px) {
 only screen and (max-width: 850px) {
   .inner.profil {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin: auto;
   }
 
